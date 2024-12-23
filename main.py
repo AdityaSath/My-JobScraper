@@ -13,7 +13,6 @@ result = requests.get(base_url)
 # create BeautifulSoup object to read the html of the file
 bs = BeautifulSoup(result.text, "html.parser")
 
-# TODO: Define the pull_company_name function
 def pull_company_name(base_url, all_links, job_links):
     """
     Extracts job links from the company careers page.
@@ -28,7 +27,6 @@ def pull_company_name(base_url, all_links, job_links):
     """
 
     for link in all_links:
-        # TODO: Check if the link contains a certain pattern and is not already in job_links
         # Append the link to job_links if it meets the criteria
         for link in all_links:
             # Pattern: all job posts have href att starting with "/careers/find-a-role/position/?jobid="
@@ -38,7 +36,6 @@ def pull_company_name(base_url, all_links, job_links):
     # Full list of jobs
     return job_links
 
-# TODO: Define the button_company_name function
 def button_company_name(driver, page, outer_loop_break, all_links):
     """
     Handles pagination by clicking the "next page"/"load more" button.
@@ -53,7 +50,7 @@ def button_company_name(driver, page, outer_loop_break, all_links):
     tuple: Updated page number and outer_loop_break flag.
     """
     try:
-        # TODO: Locate the next page button and navigate to the next page if it exists
+        # Locate the next page button and navigate to the next page if it exists
         # pattern: load more button has class name: btn btn--cta, so find it
         next = bs.find('a', class_="btn btn--cta")
         # Simulate clicking load more button
